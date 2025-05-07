@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background: #11111b; /* or whatever color you picked */
+  background: #000; /* or whatever color you picked */
   color: #fff; /* optional: change text color too */
 }
 header {
