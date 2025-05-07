@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #000;
+}
+header {
+  text-align: center;
+  padding: 20px;
+}
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.filters {
+  margin-top: 10px;
+}
+.filters button {
+  margin: 5px;
+  padding: 8px 16px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.filters button.active {
+  background: #000;
+  color: #fff;
+}
+main#gallery {
+  column-count: 3;
+  column-gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.item img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+.item.hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+@media (max-width: 800px) {
+  main#gallery {
+    column-count: 2;
+  }
+}
+@media (max-width: 500px) {
+  main#gallery {
+    column-count: 1;
+  }
+}
