@@ -1,25 +1,29 @@
-.pinyon-script-regular {
-  font-family: "Pinyon Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+body {
   margin: 0;
   padding: 0;
-  background: #000; /* or whatever color you picked */
-  color: #fff; /* optional: change text color too */
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
 }
+
 header {
   text-align: center;
   padding: 20px;
 }
+
 h1 {
-  font-size: 2.5em;
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-size: 3em;
   margin-bottom: 10px;
-  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-transform: none;
 }
+
 .filters {
   margin-top: 10px;
 }
+
 .filters button {
   margin: 5px;
   padding: 8px 16px;
@@ -28,10 +32,12 @@ h1 {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .filters button.active {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #000;
 }
+
 main#gallery {
   column-count: 3;
   column-gap: 20px;
@@ -39,27 +45,32 @@ main#gallery {
   margin: 40px auto;
   padding: 0 20px;
 }
+
 .item {
   break-inside: avoid;
   margin-bottom: 20px;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+
 .item img {
   width: 100%;
   display: block;
   border-radius: 4px;
 }
+
 .item.hidden {
   opacity: 0;
   pointer-events: none;
   position: absolute;
 }
+
 @media (max-width: 800px) {
   main#gallery {
     column-count: 2;
   }
 }
+
 @media (max-width: 500px) {
   main#gallery {
     column-count: 1;
