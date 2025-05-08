@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let x, y, tries = 0;
 
     do {
-      x = Math.random() * 90;
-      y = index * bandHeight + Math.random() * bandHeight;
+      x = Math.random() * 85 + Math.random() * 3 - 1.5;  // 85vw with a ±1.5vw nudge
+y = index * bandHeight + Math.random() * bandHeight * 0.9;  // tighter vertical range
       tries++;
       if (tries > 1000) break;
     } while (isTooClose(x * 10, y));
