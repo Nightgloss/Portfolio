@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('#gallery');
   const placedPositions = [];
 
-  const spacing = 250; // minimum distance between items
+  const spacing = 250; // minimum px distance between images
+  let imageIndex = 0;
 
   function isTooClose(x, y) {
     return placedPositions.some(pos => {
@@ -14,20 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getRandomPosition(index, total) {
-  const bandHeight = 2800 / total;
-  let x, y, tries = 0;
+    const bandHeight = 2800 / total;
+    let x, y, tries = 0;
 
-  do {
-    x = Math.random() * 90;
-    y = index * bandHeight + Math.random() * bandHeight;
-    tries++;
-    if (tries > 1000) break;
-  } while (isTooClose(x * 10, y));
+    do {
+      x = Math.random() * 90;
+      y = index * bandHeight + Math.random() * bandHeight;
+      tries++;
+      if (tries > 1000) break;
+    } while (isTooClose(x * 10, y));
 
-  placedPositions.push({ x: x * 10, y });
-  return { x, y };
-}
-
+    placedPositions.push({ x: x * 10, y });
+    return { x, y };
+  }
 
   imagesLoaded(grid)
     .on('progress', function (instance, image) {
@@ -38,5 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.style.left = `${x}vw`;
       item.style.top = `${y}px`;
       item.style.zIndex = 10 + Math.floor(Math.random() * 10);
+
+      imageIndex++; // <— this was likely missing before
     });
 });
