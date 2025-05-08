@@ -44,14 +44,11 @@ h1 {
   opacity: 1;
 }
 
-#gallery.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+#gallery {
+  column-count: 3;
+  column-gap: 20px;
   max-width: 1000px;
   margin: 40px auto;
-  min-height: 4000px; /* Prevent scrollbar jump */
-  position: relative;
 }
 
 .grid-sizer,
