@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.item');
+  const grid = document.querySelector('#gallery');
   const placedPositions = [];
 
-  const spacing = 80; // just enough to let corners kiss
+  const spacing = 80;
   const total = items.length;
 
   function isTooClose(x, y) {
@@ -14,27 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getRandomPosition(index) {
-    const cols = 5; // fewer columns = more space
+    const cols = 5;
     const colWidthVW = 18;
     const rowHeight = 450;
 
     const col = index % cols;
     const row = Math.floor(index / cols);
 
-    const x = col * colWidthVW + (Math.random() * 6 - 3); // ~±3vw nudge
-    const y = row * rowHeight + (Math.random() * 60 - 30); // ~±30px nudge
+    const x = col * colWidthVW + (Math.random() * 6 - 3);
+    const y = row * rowHeight + (Math.random() * 60 - 30);
 
     placedPositions.push({ x: x * 10, y });
     return { x, y };
   }
 
-  // Shuffle items
-  const shuffledItems = Array.from(items).sort(() => Math.random() - 0.5);
+  imagesLoaded(grid, () => {
+    // Shuffle AFTER images are loaded
+    const shuffledItems = Array.from(items).sort(() => Math.random() - 0.5);
 
-  shuffledItems.forEach((item, index) => {
-    const img = item.querySelector('img');
-
-    imagesLoaded(img, () => {
+    shuffledItems.forEach((item, index) => {
       const { x, y } = getRandomPosition(index);
       item.style.left = `${x}vw`;
       item.style.top = `${y}px`;
