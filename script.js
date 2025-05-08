@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.item');
   const placedPositions = [];
 
-  const spacing = 250; // minimum spacing
+ const spacing = 80;
   const total = items.length;
 
   function isTooClose(x, y) {
