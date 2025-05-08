@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return { x, y };
   }
 
-  imagesLoaded(grid, () => {
-    // Shuffle AFTER images are loaded
-    const shuffledItems = Array.from(items).sort(() => Math.random() - 0.5);
-
-    shuffledItems.forEach((item, index) => {
-      const { x, y } = getRandomPosition(index);
-      item.style.left = `${x}vw`;
-      item.style.top = `${y}px`;
-      item.style.zIndex = 10 + Math.floor(Math.random() * 10);
-      item.classList.add('show');
-    });
+ imagesLoaded(grid)
+  .on('progress', function (instance, image) {
+    const item = image.img.closest('.item');
+    const index = Array.from(items).indexOf(item);
+    const { x, y } = getRandomPosition(index);
+    
+    item.style.left = `${x}vw`;
+    item.style.top = `${y}px`;
+    item.style.zIndex = 10 + Math.floor(Math.random() * 10);
+    item.classList.add('show');
+  });
   });
 });
