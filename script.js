@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     imagesLoaded(img, () => {
       const { x, y } = getRandomPosition(index);
-      item.style.left = `${x}vw`;
-      item.style.top = `${y}px`;
+item.style.left = `${x}vw`;
+item.style.top = `${y}px`;
       item.style.zIndex = 10 + Math.floor(Math.random() * 10);
       item.classList.add('show');
     });
