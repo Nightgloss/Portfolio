@@ -13,20 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function getRandomPosition(index) {
-    const bandHeight = 2800 / total;
-    let x, y, tries = 0;
+ function getRandomPosition(index) {
+  const cols = 5; // fewer columns = more space per image
+  const colWidthVW = 18; // how much horizontal space each "column" takes
+  const rowHeight = 450; // taller rows = fewer dense clusters
 
-    do {
-      x = Math.random() * 85 + Math.random() * 3 - 1.5;  // 85vw with a ±1.5vw nudge
-y = index * bandHeight + Math.random() * bandHeight * 0.9;  // tighter vertical range
-      tries++;
-      if (tries > 1000) break;
-    } while (isTooClose(x * 10, y));
+  const col = index % cols;
+  const row = Math.floor(index / cols);
 
-    placedPositions.push({ x: x * 10, y });
-    return { x, y };
-  }
+  // Add small randomized offsets
+  const x = col * colWidthVW + (Math.random() * 6 - 3); // ~±3vw
+  const y = row * rowHeight + (Math.random() * 60 - 30); // ~±30px
+
+  placedPositions.push({ x: x * 10, y }); // optional: keep for collision check
+  return { x, y };
+}
 
   items.forEach((item, index) => {
     const img = item.querySelector('img');
