@@ -31,10 +31,9 @@ header {
 
 .img-btn img {
   height: 40px;
-  max-width: 100px; /* force consistent width */
+  max-width: 100px;
   object-fit: contain;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  display: block;
 }
 
 .img-btn:hover img,
