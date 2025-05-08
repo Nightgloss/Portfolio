@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.item');
   const placedPositions = [];
 
-  const spacing = 250; // minimum spacing
+  const spacing = 80; // just enough to let corners kiss
   const total = items.length;
 
   function isTooClose(x, y) {
@@ -14,21 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getRandomPosition(index) {
-    const bandHeight = 2800 / total;
-    let x, y, tries = 0;
+    const cols = 5; // fewer columns = more space
+    const colWidthVW = 18;
+    const rowHeight = 450;
 
-    do {
-      x = Math.random() * 90;
-      y = index * bandHeight + Math.random() * bandHeight;
-      tries++;
-      if (tries > 1000) break;
-    } while (isTooClose(x * 10, y));
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+
+    const x = col * colWidthVW + (Math.random() * 6 - 3); // ~±3vw nudge
+    const y = row * rowHeight + (Math.random() * 60 - 30); // ~±30px nudge
 
     placedPositions.push({ x: x * 10, y });
     return { x, y };
   }
 
-  items.forEach((item, index) => {
+  // Shuffle items
+  const shuffledItems = Array.from(items).sort(() => Math.random() - 0.5);
+
+  shuffledItems.forEach((item, index) => {
     const img = item.querySelector('img');
 
     imagesLoaded(img, () => {
