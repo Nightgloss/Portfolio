@@ -46,13 +46,18 @@ header {
   margin: 40px auto;
 }
 
-.grid-sizer {
-  width: 33.333%;
-}
-
+/* Tell Masonry how to size the columns */
+.grid-sizer,
 .item {
   width: 33.333%;
   float: left;
+}
+
+.item {
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .item.show {
