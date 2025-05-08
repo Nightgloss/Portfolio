@@ -44,24 +44,36 @@ h1 {
   opacity: 1;
 }
 
-#gallery {
+#gallery.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  min-height: 4000px; /* Prevent scrollbar jump */
   position: relative;
-  width: 100%;
-  height: 3500px;
+}
+
+.grid-sizer,
+.item {
+  width: 33.333%;
 }
 
 .item {
-  position: absolute;
+  margin-bottom: 20px;
+  break-inside: avoid;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .item.show {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .item img {
-  width: 320px;
+  width: 100%;
   display: block;
   border: none;
   border-radius: 0;
