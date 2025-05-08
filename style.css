@@ -11,75 +11,49 @@ header {
   padding: 20px;
 }
 
-h1 {
-  font-family: "Pinyon Script", cursive;
-  font-weight: 400;
-  font-size: 3em;
+.site-logo {
+  max-width: 300px;
   margin-bottom: 10px;
-  letter-spacing: 1px;
-  text-transform: none;
 }
 
 .filters {
   margin-top: 10px;
 }
 
-.filters button {
-  margin: 5px;
-  padding: 8px 16px;
-  background: #ddd;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.filters button.active {
-  background: #fff;
-  color: #000;
-}
 .img-btn {
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 .img-btn img {
-  height: 40px; /* Adjust as needed */
+  height: 40px;
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
-.img-btn:hover img {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
+.img-btn:hover img,
 .img-btn.active img {
   opacity: 1;
-  outline: 2px solid #fff; /* or glow it up */
 }
 
-main#gallery {
-  column-count: 3;
-  column-gap: 20px;
+#gallery {
   max-width: 1000px;
   margin: 40px auto;
-  padding: 0 20px;
 }
 
 .item {
-  break-inside: avoid;
-  margin-bottom: 20px;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.item img {
-  width: 100%;
-  display: block;
-  border-radius: 4px;
+.item.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .item.hidden {
@@ -88,14 +62,13 @@ main#gallery {
   position: absolute;
 }
 
-@media (max-width: 800px) {
-  main#gallery {
-    column-count: 2;
-  }
+.item img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-@media (max-width: 500px) {
-  main#gallery {
-    column-count: 1;
-  }
+.item img:hover {
+  filter: brightness(1.05);
 }
