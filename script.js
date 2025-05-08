@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.item');
 
   // Initialize Masonry
-  const msnry = new Masonry(grid, {
-    itemSelector: '.item',
-    percentPosition: true,
-    gutter: 10
-  });
+ const msnry = new Masonry(grid, {
+  itemSelector: '.item',
+  columnWidth: '.grid-sizer',
+  gutter: 10,
+  percentPosition: true
+});
 
   // Fade in on load
   imagesLoaded(grid, () => {
