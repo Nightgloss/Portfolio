@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const item = image.img.closest('.item');
       item.classList.add('show');
       // Random scatter
-      item.style.top = `${Math.random() * 2800}px`;
+     const y = Math.pow(Math.random(), 1.5) * 2800;
+item.style.top = `${y}px`;
       item.style.left = `${Math.random() * 90}vw`;
       item.style.zIndex = Math.floor(Math.random() * 50);
     });
