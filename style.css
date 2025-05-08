@@ -45,10 +45,13 @@ h1 {
 }
 
 #gallery.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  min-height: 4000px; /* Prevent scrollbar jump */
   position: relative;
-  min-height: 4000px; /* makes enough room ahead of time */
-  height: auto;
-  overflow-anchor: none; /* avoids scroll jumping */
 }
 
 .grid-sizer,
