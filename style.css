@@ -1,4 +1,6 @@
-body {
+html, body {
+  scroll-behavior: auto;
+  overflow-anchor: none;
   margin: 0;
   padding: 0;
   background: #000;
