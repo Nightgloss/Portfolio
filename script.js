@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   imagesLoaded(grid, () => {
-    items.forEach(item => {
-      item.classList.add('show');
-    });
-    msnry.layout();
+  items.forEach((item, i) => {
+    item.classList.add(`fade-delay-${(i % 5) + 1}`); // rotate through delay classes
+    item.classList.add('show');
   });
+  msnry.layout();
+});
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
