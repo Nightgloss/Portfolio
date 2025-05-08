@@ -28,6 +28,8 @@ header {
 
 .img-btn img {
   height: 40px;
+  max-width: 100px; /* force consistent width */
+  object-fit: contain;
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
