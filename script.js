@@ -10,13 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     percentPosition: true
   });
 
-  imagesLoaded(grid, () => {
-  items.forEach((item, i) => {
-    item.classList.add(`fade-delay-${(i % 5) + 1}`); // rotate through delay classes
+imagesLoaded(grid)
+  .on('progress', function(instance, image) {
+    const item = image.img.closest('.item');
     item.classList.add('show');
+    msnry.layout();
   });
-  msnry.layout();
-});
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
