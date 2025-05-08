@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 imagesLoaded(grid)
-  .on('progress', function(instance, image) {
+  .on('progress', function (instance, image) {
     const item = image.img.closest('.item');
     item.classList.add('show');
     msnry.layout();
   });
+
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
