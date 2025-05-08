@@ -16,7 +16,10 @@ header {
 }
 
 .filters {
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .img-btn {
