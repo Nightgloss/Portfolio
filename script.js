@@ -1,9 +1,9 @@
-const buttons = document.querySelectorAll('.filters button');
+const buttons = document.querySelectorAll('.img-btn');
 const items = document.querySelectorAll('.item');
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    // Set active state
+    // Update active class
     buttons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
