@@ -1,41 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('#gallery');
-  const buttons = document.querySelectorAll('.img-btn');
   const items = document.querySelectorAll('.item');
+  const grid = document.querySelector('#gallery');
 
-  const msnry = new Masonry(grid, {
-    itemSelector: '.item',
-    columnWidth: '.grid-sizer',
-    gutter: 10,
-    percentPosition: true
-  });
-
-imagesLoaded(grid)
-  .on('progress', function (instance, image) {
-    const item = image.img.closest('.item');
-    item.classList.add('show');
-    msnry.layout();
-  });
-
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      const filter = button.dataset.filter;
-
-      items.forEach(item => {
-        item.classList.remove('show');
-        if (filter === 'all' || item.classList.contains(filter)) {
-          item.classList.remove('hidden');
-          setTimeout(() => item.classList.add('show'), 10);
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-
-      setTimeout(() => msnry.layout(), 300);
+  imagesLoaded(grid)
+    .on('progress', function (instance, image) {
+      const item = image.img.closest('.item');
+      item.classList.add('show');
+      // Random scatter
+      item.style.top = `${Math.random() * 2800}px`;
+      item.style.left = `${Math.random() * 90}vw`;
+      item.style.zIndex = Math.floor(Math.random() * 50);
     });
-  });
 });
